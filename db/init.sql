@@ -1,3 +1,16 @@
+create database people;
+
+\connect people
+
+
+CREATE TABLE Person (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    favorite_animal VARCHAR(150)
+);
+
+
 insert into Person (id, name, email, favorite_animal) values (1, 'Saidee', 'smasterton0@youku.com', 'Armadillo, seven-banded');
 insert into Person (id, name, email, favorite_animal) values (2, 'Lula', 'ldealtry1@google.ca', 'Whip-tailed wallaby');
 insert into Person (id, name, email, favorite_animal) values (3, 'Nickolaus', 'ncresswell2@weebly.com', 'Canadian tiger swallowtail butterfly');

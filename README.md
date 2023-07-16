@@ -9,15 +9,15 @@
 
 ## The start_all.sh script
 The `start_all.sh` script does three things:
-1. Runs the `db/start_db.sh` script
+1. Runs the `db/setup.sh` script
 2. Dynamically gets the db container's IP address and writes it to `api/db_ip_addr` so the api container can pick it up
 3. Runs the `api/start_api.sh` script
 
 
 ### The Database
-The `db` folder contains everything needed to run a containerized Postgres database with a pre-loaded `Person` table. The `start_db.sh` script will build the image from the `Dockerfile`, then run it as a background process.  After a few seconds, it will exec into the running container and execute the `setup_db.sh` script that creates the `Person` table and inserts records.
+The `db` folder contains everything needed to run a containerized Postgres database with a pre-loaded `Person` table. The `setup.sh` script will build the image from the `Dockerfile`, then run it as a background process. 
 
-This service needs to be running before the Python API, because the Python API will need to have access to the database's IP address, which is assigned by Docker when the container starts.
+This service needs to be running _before_ the Python API container, because the Python API will need to have access to the database's IP address, which is assigned by Docker when the container starts.
 
 ### The API
 The `api` folder contains everything you need to run a Flask API (Python).  Because Flask is a 3rd-party module, we have to make sure that the container has the necessary dependencies installed (listed in `requirements.txt`).
@@ -36,6 +36,8 @@ The database container's IP address is then written to the `db_ip_addr` file.  T
 
 
 ## The frontend
-The `frontend` folder contains everything you need for a web server.  It uses the [Alpine Nginx image](https://hub.docker.com/_/nginx).  Configuring a web server can get complicated, but fortunately all the default configuration will serve our purposes now.  All we have to do is copy our html/css/js files to `/usr/share/nginx/html/` in the container.  This is just how Nginx works, it has nothing to do with Docker.
+The `frontend` folder contains everything you need for a web server.  It uses the [Alpine Nginx image](https://hub.docker.com/_/nginx).  Configuring a web server can get complicated, but fortunately all the default configuration will serve our purposes for now.  All we have to do is copy our html/css/js files to `/usr/share/nginx/html/` in the container.  This is just how Nginx works, it has nothing to do with Docker.
+
+Visit the site at [http://localhost/](http://localhost/)
 
 
