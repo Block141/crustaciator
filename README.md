@@ -1,17 +1,18 @@
 # PeopleGetter
 
 ## High-level usage
-1. Start up the backend service containers (a Python API and a Postgres database)
+1. Start up the backend service containers (a Python API and a Postgres database), and the webserver (nginx)
 ```bash
 ./start_all.sh
 ```
 2. Use the live server extension to open `frontend/index.html`
 
 ## The start_all.sh script
-The `start_all.sh` script does three things:
+The `start_all.sh` script does four things:
 1. Runs the `db/setup.sh` script
 2. Dynamically gets the db container's IP address and writes it to `api/db_ip_addr` so the api container can pick it up
 3. Runs the `api/start_api.sh` script
+4. Runs the `frontend/start_frontend.sh` script
 
 
 ### The Database
