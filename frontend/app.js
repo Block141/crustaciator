@@ -1,5 +1,5 @@
 window.onload = () => {
-  const baseUrl ="https://3.17.208.55:8000" 
+  const baseUrl ="http://3.17.208.55:8000" 
 
   const listBtn = document.querySelector("#listBtn")
   const crustaceanSelect = document.querySelector("#crustaceanSelect")
