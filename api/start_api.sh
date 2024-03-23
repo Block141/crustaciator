@@ -1,2 +1,2 @@
-docker build -t crustacean_api .
-docker run --rm -p 8000:8000 -d crustacean_api
+docker build -t crustacean_api ./api
+docker run --name crustacean_api --rm -p 8000:8000 -d crustacean_api

@@ -22,15 +22,17 @@ window.onload = () => {
   const getCrustaceans = async () => {
     const url = `${baseUrl}/all`
     const fetchResult = await doFetch(url)
-    const crustacean = fetchResult.crustacean
-    crustacean.forEach( p => createHtmlCrustacean(p))
+    console.log("Fetched: " + JSON.stringify(fetchResult))
+    const crustaceans = fetchResult.crustaceans
+    console.log("Crustaceans: ", crustaceans); 
+    crustaceans.forEach( p => createHtmlCrustacean(p))
   }
 
   const getCrustacean = async (id) => {
     const url = `${baseUrl}/${id}` 
     const fetchResult = await doFetch(url)
     const crustacean = fetchResult.crustacean
-    createHtmlPerson(crustacean)
+    createHtmlCrustacean(crustacean)
   }
 
   const removeCrustaceans = () => {
@@ -45,9 +47,9 @@ window.onload = () => {
     const p1 = document.createElement("p")
     const p2 = document.createElement("p")
 
-    h3.innerText = `name: ${crustacean.name}`
-    p1.innerText = `place of origin: ${crustacean.origin}`
-    p2.innerText = `fun fact: ${crustacean.fun_fact}`
+    h3.innerText = `Name: ${crustacean[1]}`
+    p1.innerText = `Place of Origin: ${crustacean[2]}`
+    p2.innerText = `Fun Fact: ${crustacean[3]}`
 
     div.appendChild(h3)
     div.appendChild(p1)

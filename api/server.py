@@ -21,7 +21,7 @@ def all_crustaceans():
     user="postgres",
     password="password") as conn:
         with conn.cursor() as cursor:
-            cursor.execute("select * from Crustacean")
+            cursor.execute("SELECT * FROM Crustacean")
             crustaceans = cursor.fetchall()
     conn.close()
     return json.dumps({'crustaceans': crustaceans if crustaceans else "No crustaceans found..."})

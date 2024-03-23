@@ -1,4 +1,4 @@
-docker build -t crustacean_db .
+docker build -t crustacean_db ./db
 docker run --name pg_db --rm -e POSTGRES_PASSWORD=password -d crustacean_db
 
 #Local testing.
