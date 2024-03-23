@@ -6,7 +6,7 @@ window.onload = () => {
   const crustaceanContainer = document.querySelector("#crustaceanContainer")
 
   // Generate options for the user dropdown dynamically
-  for (let i = 1; i <= 100; i++) {
+  for (let i = 1; i <= 20; i++) {
       const option = document.createElement('option');
       option.value = i;
       option.text = i;
